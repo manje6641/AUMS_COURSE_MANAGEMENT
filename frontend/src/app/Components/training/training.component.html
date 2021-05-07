@@ -1,0 +1,82 @@
+<app-navbar></app-navbar>
+<div fxLayout fxLayoutAlign="center center">
+  <mat-form-field fxFlex="40%" appearance="outline">
+    <input matInput type="text" (keyup)="applyFilter($event)" placeholder="Filter" #input>
+  </mat-form-field>
+</div>
+
+<button *ngIf="flag" (click)="addTraining()" mat-flat-button color="primary">Add Training</button>
+<button *ngIf="flag" (click)="addMaterial()" mat-flat-button color="primary">Add Training Material</button>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="TrainingId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>TrainingId</th>
+      <td mat-cell *matCellDef="let element">{{element.trainingId}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="CourseId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>CourseId</th>
+      <td mat-cell *matCellDef="let element">{{element.courseId}}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="InstructorId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>InstructorId</th>
+      <td mat-cell *matCellDef="let element">{{element.instructorId}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="TrainingFeedback">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>TrainingFeedback</th>
+      <td mat-cell *matCellDef="let element">{{element.feedback}}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="ViewMaterial">
+      <th mat-header-cell *matHeaderCellDef>View Material</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="accent" (click)="viewMaterial(element.trainingId)">
+          <mat-icon class="mat-18">search</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef> Update </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="accent" (click)="updateTraining(element.trainingId)">
+          <mat-icon class="mat-18">edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="warn" (click)="deleteTraining(element.trainingId)">
+          <mat-icon class="mat-18">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Enroll">
+      <th mat-header-cell *matHeaderCellDef> Enroll </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="warn" (click)="enrollTraining(element.trainingId)">
+          <mat-icon class="mat-18">launch</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+
+

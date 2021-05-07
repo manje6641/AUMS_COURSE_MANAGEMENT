@@ -1,0 +1,8 @@
+<div *ngIf="!user" >
+  <button (click)="loginWithGoogle()">
+    <img src="assets/signin.jpg" alt="loading" style="height: 40px">
+  </button>
+</div>
+<div *ngIf="user">
+  <button mat-raised-button (click)="logout()">Logout</button>
+</div>

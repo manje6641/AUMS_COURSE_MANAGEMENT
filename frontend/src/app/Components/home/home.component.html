@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div class="row">
+  <div class="col-sm-6" style="display: flex;" *ngIf="pieChartLabels0 && pieChartData0">
+    <canvas baseChart width="400" height="200"
+            [data]="pieChartData0"
+            [labels]="pieChartLabels0"
+            [chartType]="pieChartType0"
+            [options]="pieChartOptions0"
+            [plugins]="pieChartPlugins0"
+            [legend]="pieChartLegend0"
+            [colors]="pieChartColors0">
+    </canvas>
+  </div>
+  <div class="col-sm-6" style="display: block;">
+    <canvas baseChart width="400" height="200"
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+  <div class="col-sm-12"><br><br></div>
+  <div class="col-sm-6" style="display: block;">
+    <canvas baseChart width="400" height="200"
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+    </canvas>
+  </div>
+  <div class="col-sm-6" style="display: flex;" *ngIf="pieChartLabels1 && pieChartData1">
+    <canvas baseChart width="400" height="200"
+            [data]="pieChartData1"
+            [labels]="pieChartLabels1"
+            [chartType]="pieChartType1"
+            [options]="pieChartOptions1"
+            [plugins]="pieChartPlugins1"
+            [legend]="pieChartLegend1"
+            [colors]="pieChartColors1">
+    </canvas>
+  </div>
+</div>
+
+
+

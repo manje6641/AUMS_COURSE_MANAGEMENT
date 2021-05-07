@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<div class="col-sm-12"><!-- Responsive table -->
+          <div class="table-responsive">
+            <table class="table m-0">
+              <thead>
+              <tr>
+                <th *ngFor="let column of displayedColumns">
+                  {{column}}
+                </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let row of list">
+                <td *ngFor="let column of displayedColumns">
+                  {{row[column]}}
+                </td>
+                <td>
+                  <!-- Call to action buttons -->
+                  <ul class="list-inline m-0">
+                    <li class="list-inline-item">
+                      <button class="btn btn-primary btn-sm rounded-0" type="button" (click)="viewMaterial(row.trainingId)" data-placement="top" title="View"><i class="fa fa-table"></i>View Material</button>
+                    </li>
+                    <li class="list-inline-item">
+                      <button class="btn btn-success btn-sm rounded-0" type="button" (click)="giveFeedback(row.trainingId)" data-placement="top" title="Give"><i class="fa fa-edit"></i>Give Feedback</button>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+</div>
+
+<!--
+<table>
+  <tr *ngFor="let row of list">
+    <td *ngFor="let column of displayedColumns">
+      {{row[column]}}
+    </td>
+  </tr>
+</table>-->

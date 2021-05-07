@@ -1,0 +1,36 @@
+.example-icon {
+  padding: 0 14px;
+}
+
+a {
+  color: aliceblue;
+  padding: 10px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #FE4081;
+  background-color: white;
+}
+
+.mat-card-avatar {
+  font-size: 30px;
+}
+
+
+.mat-icon:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.mat-icon {
+  font-size: 37px;
+}
+
+button{
+  float: right;
+}
+img{
+  height: 40px;
+  float: right;
+}

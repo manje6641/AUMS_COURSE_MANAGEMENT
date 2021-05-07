@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>AUMS</span>&nbsp;&nbsp;
+    <a class="example-icon" routerLink="/home" >Home</a>
+    <a class="example-icon" routerLink="/viewCourse" *ngIf="user">Courses</a>
+    <a class="example-icon" routerLink="/viewUser" *ngIf="user">Users</a>
+    <a class="example-icon" routerLink="/viewTraining" *ngIf="user">Training </a>
+    <a class="example-icon" routerLink="/assigned" *ngIf="user">Assigned</a>
+    <button (click)="loginWithGoogle()" *ngIf="!user">
+      <img src="assets/signin.jpg" alt="loading">
+    </button>
+      <button mat-raised-button (click)="logout()" *ngIf="user">Logout</button>
+  </mat-toolbar-row>
+</mat-toolbar>

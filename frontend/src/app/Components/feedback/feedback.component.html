@@ -1,0 +1,14 @@
+<h4>EDIT TRAINING</h4>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>FeedBack</mat-label>
+      <input  matInput placeholder="enter number between 1 to 10" [formControl]="rating" >
+    </mat-form-field>
+  </p>
+
+  <div>
+    <button mat-fab color="accent" type="submit" (click)="feedback()" aria-label="Example icon button with a edit icon">
+      <mat-icon>save</mat-icon>
+    </button>
+  </div>
+

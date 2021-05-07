@@ -1,0 +1,29 @@
+<form [formGroup]="trainingForm" layout="row" layout-align="center center" (ngSubmit)="addTraining()" id="courseForm">
+  <h4>ADD NEW TRAINING</h4>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Course Id</mat-label>
+      <input matInput type="number" placeholder="Course Id" formControlName="courseId">
+      <mat-icon matSuffix>edit</mat-icon>
+    </mat-form-field>
+  </p>
+  <p>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Instructor Id</mat-label>
+      <input matInput type="number" placeholder="Instructor Id" formControlName="instructorId">
+      <mat-icon matSuffix>edit</mat-icon>
+    </mat-form-field>
+  </p>
+  <p>
+  <p>
+    <button [disabled]="!trainingForm.valid" mat-fab color="accent" type="submit">
+      <mat-icon>save</mat-icon>
+    </button>
+  </p>
+
+</form>
+
+

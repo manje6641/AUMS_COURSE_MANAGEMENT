@@ -1,0 +1,46 @@
+<form [formGroup]="userForm" layout="row" layout-align="center center" (ngSubmit)="addUser()">
+  <h4>ADD NEW USER</h4>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>User Name</mat-label>
+      <input matInput placeholder="User name" formControlName="userName">
+      <mat-icon matSuffix>edit</mat-icon>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>User Email</mat-label>
+      <input matInput placeholder="User Email" formControlName="userEmail">
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>User Location</mat-label>
+      <mat-select formControlName="userLocation">
+        <mat-option *ngFor="let location of locations" [value]="location">
+          {{location}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>User Designation</mat-label>
+      <mat-select formControlName="userDesignation">
+        <mat-option *ngFor="let role of Designation" [value]="role">
+          {{role}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <button [disabled]="!userForm.valid" mat-fab color="accent" type="submit">
+      <mat-icon>save</mat-icon>
+    </button>
+  </p>
+
+</form>
+

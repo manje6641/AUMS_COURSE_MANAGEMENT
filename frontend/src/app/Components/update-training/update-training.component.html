@@ -1,0 +1,26 @@
+<form [formGroup]="trainingForm" layout="row" layout-align="center center" (ngSubmit)="updateTraining()">
+  <h4>EDIT TRAINING</h4>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Course Id</mat-label>
+      <input  matInput placeholder="Eg: React" formControlName="courseId" >
+      <mat-icon matSuffix>edit</mat-icon>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Instructor Id</mat-label>
+      <input  matInput placeholder="Eg: React" formControlName="instructorId" >
+      <mat-icon matSuffix>edit</mat-icon>
+    </mat-form-field>
+  </p>
+
+  <div>
+  <button mat-fab color="accent" [disabled]="!trainingForm.valid" type="submit" aria-label="Example icon button with a edit icon">
+    <mat-icon>save</mat-icon>
+  </button>
+  </div>
+
+</form>

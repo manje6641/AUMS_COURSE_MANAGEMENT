@@ -1,0 +1,21 @@
+<form [formGroup]="materialForm" layout="row" layout-align="center center" (ngSubmit)="addMaterial()" id="courseForm">
+  <h4>ADD NEW TRAINING</h4>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Training Id</mat-label>
+      <input matInput type="number" placeholder="Training Id" formControlName="trainingId">
+      <mat-icon matSuffix>edit</mat-icon>
+    </mat-form-field>
+  </p>
+
+<label class="btn btn-default">
+  <input type="file" (change)="selectFile($event)" enctype="multipart/form-data">
+</label>
+  <br>
+  <p>
+    <button [disabled]="!materialForm.valid" mat-fab color="accent" type="submit">
+      <mat-icon>save</mat-icon>
+    </button>
+  </p>
+
+</form>

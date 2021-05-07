@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+<div fxLayout fxLayoutAlign="center center">
+  <mat-form-field fxFlex="40%" appearance="outline">
+    <input matInput type="text" (keyup)="applyFilter($event)" placeholder="Filter" #input>
+  </mat-form-field>
+</div>
+<button *ngIf="flag" (click)="addUser()" mat-flat-button color="primary">Add User</button>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="UserId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>UserId</th>
+      <td mat-cell *matCellDef="let element">{{element.userId}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="UserName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>UserName</th>
+      <td mat-cell *matCellDef="let element">{{element.userName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="UserEmail">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>UserEmail</th>
+      <td mat-cell *matCellDef="let element">{{element.userEmail}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="UserLocation">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>UserLocation</th>
+      <td mat-cell *matCellDef="let element">{{element.userLocation}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="UserDesignation">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>UserDesignation</th>
+      <td mat-cell *matCellDef="let element">{{element.userDesignation}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef> Update </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="accent" (click)="updateUser(element.userId)">
+          <mat-icon class="mat-18">edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="warn" (click)="deleteUser(element.userId)">
+          <mat-icon class="mat-18">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+
